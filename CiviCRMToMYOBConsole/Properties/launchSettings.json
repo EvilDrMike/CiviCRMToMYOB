@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CiviCRMToMYOBConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \"C:\\BenefitRoad\\Work\\Personal\\Data\\Transactions civicrm export 31-Aug-2018.csv\" -o \"C:\\BenefitRoad\\Work\\Personal\\Data\\MyobTest.csv\""
+    }
+  }
+}
