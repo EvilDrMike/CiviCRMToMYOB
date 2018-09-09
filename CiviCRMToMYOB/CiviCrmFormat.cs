@@ -7,5 +7,6 @@
         public string FinancialAccountCodeCredit { get; set; }
         public string Amount { get; set; }
         public string TransNumber { get; set; }
+        public string ContactName { get; set; }
     }
 }

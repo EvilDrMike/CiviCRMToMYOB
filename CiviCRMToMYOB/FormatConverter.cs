@@ -27,13 +27,18 @@ namespace CiviCRMToMYOB
             var previousTransactionNumber = (string)null;
             foreach (var row in list)
             {
-                writer.WriteLine(ToDebitLine(row));
-                writer.WriteLine(ToCreditLine(row));
+                if (string.IsNullOrEmpty(row.TransNumber))
+                {
+                    row.TransNumber = $"{row.ContactName} at {row.Date}";
+                }
 
                 if (previousTransactionNumber != null && string.Compare(row.TransNumber, previousTransactionNumber, StringComparison.InvariantCultureIgnoreCase) != 0)
                 {
                     writer.WriteLine(",,,,,,,,,");
                 }
+
+                writer.WriteLine(ToDebitLine(row));
+                writer.WriteLine(ToCreditLine(row));
 
                 previousTransactionNumber = row.TransNumber;
             }
@@ -43,12 +48,12 @@ namespace CiviCRMToMYOB
 
         private static string ToCreditLine(CiviCrmFormat item)
         {
-            return $",{item.Date},{item.TransNumber},{item.FinancialAccountCodeCredit},{item.Amount},Y,,,,";
+            return $",{item.Date},\"{item.TransNumber}\",{item.FinancialAccountCodeCredit},Y,{item.Amount},,,,";
         }
 
         private static ReadOnlySpan<char> ToDebitLine(CiviCrmFormat item)
         {
-            return $",{item.Date},{item.TransNumber},{item.FinancialAccountCodeDebit},{item.Amount},N,,,,";
+            return $",{item.Date},\"{item.TransNumber}\",{item.FinancialAccountCodeDebit},N,{item.Amount},,,,";
         }
 
         private List<CiviCrmFormat> ReadString(string civiFormat, Configuration configuration)

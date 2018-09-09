@@ -13,14 +13,10 @@ namespace CiviCRMToMYOBConsole
             var parser = new FluentCommandLineParser();
             parser.Setup<string>('i').Callback(val => inputFileName = val);
             parser.Setup<string>('o').Callback(val => outputFileName = val);
-
             parser.Parse(args);
 
-            var text = System.IO.File.ReadAllText(inputFileName);
-
             var outfile = new System.IO.StreamWriter(outputFileName);
-            outfile.Write(new FormatConverter().Convert(text));
-
+            outfile.Write(new FormatConverter().Convert(System.IO.File.ReadAllText(inputFileName)));
             outfile.Flush();
         }
     }
