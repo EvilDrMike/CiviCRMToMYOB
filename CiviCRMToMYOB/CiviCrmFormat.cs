@@ -8,5 +8,7 @@
         public string Amount { get; set; }
         public string TransNumber { get; set; }
         public string ContactName { get; set; }
+        public string ContributionId { get; set; }
+        public string FinancialType { get; set; }
     }
 }

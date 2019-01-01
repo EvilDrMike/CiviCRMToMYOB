@@ -2,7 +2,7 @@
   "profiles": {
     "CiviCRMToMYOBConsole": {
       "commandName": "Project",
-      "commandLineArgs": "-i \"C:\\BenefitRoad\\Work\\Personal\\Data\\Transactions civicrm export 31-Aug-2018.csv\" -o \"C:\\BenefitRoad\\Work\\Personal\\Data\\MyobTest.csv\""
+      "commandLineArgs": "-t \"C:\\BenefitRoad\\Personal\\CiviCRMToMYOB\\Report_20181230-1142.csv\" -a \"C:\\BenefitRoad\\Personal\\CiviCRMToMYOB\\Report_20181230-1143.csv\"  -o \"C:\\BenefitRoad\\Personal\\CiviCRMToMYOB\\CiviImport.csv\" -g \"12020,12021,12000,11815\" -n \"40505\" -c \"11815\""
     }
   }
 }

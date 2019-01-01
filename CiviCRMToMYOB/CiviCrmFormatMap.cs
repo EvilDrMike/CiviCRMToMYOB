@@ -12,6 +12,8 @@ namespace CiviCRMToMYOB
             Map(m => m.TransNumber).Name("Trans #");
             Map(m => m.Amount);
             Map(m => m.ContactName).Name("Contact Name");
+            Map(m => m.ContributionId).Name("Contribution ID");
+            Map(m => m.FinancialType).Name("Financial Type");
         }
     }
 }
